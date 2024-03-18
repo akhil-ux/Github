@@ -133,12 +133,7 @@ details[open] summary:after {
     height: 130px;
 }
 
-#lasdiv {
-    border: 10px solid black;
-    background-color: black;
-    width: auto;
-    height: 650px;
-}
+
 
 .lastpara {
     color: white;
@@ -234,7 +229,7 @@ details[open] summary:after {
 }
 
 .nav_links {
-    
+
     margin: 20px;
     text-decoration: none;
     color: black;
@@ -242,8 +237,8 @@ details[open] summary:after {
     font-size: 20px;
 
 }
-#nav_link:hover
-{
+
+#nav_link:hover {
     color: blue;
 }
 
@@ -316,4 +311,34 @@ details[open] summary:after {
 #fis_rec_1 {
     /* border: 2px solid gray; */
     display: inline-block;
+}
+
+.clubbox {
+    display: flex;
+    height: 600px;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+.clubimage
+{
+    opacity: 0.6;
+    transition: transform 300ms ease-in-out;
+}
+.clubimage:hover
+{   
+    height: 190px;
+    width: 310px;
+    border-radius: 40px;
+    opacity: 1;
+    transform: translateY(-10px);
+}
+#lasdiv {
+    border: 10px solid black;
+    background-color: black;
+    width: auto;
+    height: 850px;
 }
