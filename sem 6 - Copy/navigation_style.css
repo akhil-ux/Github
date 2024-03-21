@@ -1,5 +1,4 @@
-.titlebox
-{
+.titlebox {
     display: flex;
     border: 2px solid red;
     background: rgb(242, 82, 24);
@@ -12,13 +11,14 @@
     justify-content: center;
     align-items: center;
 }
+
 #heading1 {
 
     font-family: "Anta", sans-serif;
     text-shadow: 0 0 5px #FF0000, 0 0 15px #0000FF;
 }
-.rect2
-{
+
+.rect2 {
     border-radius: 30px;
     height: 50px;
     width: 30%;
@@ -29,4 +29,54 @@
     justify-content: center;
     align-items: center;
     background-color: gold;
+}
+
+.box1 {
+    border: 2px solid black;
+    margin-top: 50px;
+    margin-left: 30%;
+    height: 50px;
+    width: 505px;
+    background-color: rgb(122, 236, 122);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rect3 {
+    margin-top: 40px;
+    border: 2px solid black;
+    border-radius: 30px;
+    height: 470px;
+    width: 600px;
+    margin-left: 26%;
+    position: sticky;
+    top: 0px;
+    display: flex;
+}
+
+.dropdown1 {
+    background-color: rgb(246, 219, 151);
+    border-radius: 20px;
+    height: 40px;
+    margin-top: 17px;
+    margin-left: 160px;
+    width: 120px;
+    display: flex;
+    justify-content: first baseline;
+    color: red;
+}
+
+.dropdown2 {
+    background-color: rgb(246, 219, 151);
+    color: red;
+
+    border-radius: 20px;
+    height: 40px;
+    margin-top: 17px;
+    margin-left: 30px;
+    width: 120px;
+    display: flex;
+    justify-content: right;
 }
