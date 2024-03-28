@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Campus Route Navigation</title>
+    <style>
+        /* Your CSS styles here */
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px 0;
+        }
+
+        header .logo {
+            float: left;
+        }
+
+        header nav {
+            float: right;
+        }
+
+        header nav ul {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navigation-form {
+            max-width: 300px;
+        }
+
+        .navigation-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .navigation-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .navigation-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .map {
+            width: calc(100% - 320px);
+            height: 500px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer nav ul {
+            list-style-type: none;
+        }
+
+        footer nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        footer nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="psit.png" alt="College Logo" style="height:100px;width:100px">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Academics</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form class="navigation-form">
+                <label for="start">Start Point:</label>
+                <input type="text" id="start" name="start" placeholder="Enter starting point">
+                <label for="end">End Point:</label>
+                <input type="text" id="end" name="end" placeholder="Enter ending point">
+                <button type="button" onclick="calculateAndDisplayRoute()">Get Directions</button>
+            </form>
+        </div>
+        <div id="map" class="map"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 College Name. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        let map;
+
+        function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 26.4499, lng: 80.3319 }, // Centered on Kanpur, India
+        zoom: 14,
+    });
+}
+
+
+        function calculateAndDisplayRoute() {
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+
+            directionsService.route(
+                {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING,
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+                    } else {
+                        window.alert("Directions request failed due to " + status);
+                    }
+                }
+            );
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUrbZ2_W-juaIv4n5DHAr14myvmZLa9CI&callback=initMap" async defer></script>
+</body>
+</html>
